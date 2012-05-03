@@ -1,6 +1,34 @@
 # FigNewton
 
-TODO: Write a gem description
+Manages configuration for test suites.  It is common to need different configuration information for different test environments.  For example, the base_url or database login information might change when you move from development to a test environment.  FigNewton makes it simple to create and use this information.
+
+## Usage
+
+Using FigNewton is as simple as specifying the directory to use, loading a file from that directory, and then calling methods on the module that match the keys in the file.  Let's look at an example.
+
+By default the FigNewton gem will look for files in the 'config/environments' directory.  Let's assume that we have files named ci.yml, test.yml, and system_test.yml in that directory.  All we need to do is call the `load` method in order to begin using a file:
+
+````ruby
+FigNewton.load('system_test.yml')
+````
+
+Next we simply begin calling methods on the FigNewton module that match our keys.  Let's assume the system_test.yml file contains the following entries:
+
+base_url:  http://system_test.mycompany.com
+database_user: cheezy
+database_password: secret
+
+In our code we can call methods that match the keys.  Here is an example PageObject where we are using the `base_url` entry:
+
+````ruby
+class MyPage
+  include PageObject
+  
+  page_url "#{FigNewton.base_url}/my_page.html"
+end
+````
+
+
 
 ## Installation
 
@@ -15,10 +43,6 @@ And then execute:
 Or install it yourself as:
 
     $ gem install fig_newton
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Contributing
 
