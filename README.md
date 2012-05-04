@@ -1,5 +1,7 @@
 # FigNewton
 
+[![Build Status](http://travis-ci.org/cheezy/fig_newton.png)](http://travis-ci.org/cheezy/fig_newton)
+
 Manages configuration for test suites.  It is common to need different configuration information for different test environments.  For example, the base_url or database login information might change when you move from development to a test environment.  FigNewton makes it simple to create and use this information.
 
 ## Usage
