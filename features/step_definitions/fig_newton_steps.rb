@@ -17,3 +17,16 @@ end
 Then /^I should raise a NoMethodError exception$/ do
   expect{ FigNewton.send(@does_not_exist) }.to raise_error(NoMethodError) 
 end
+
+Then /^I should have a node$/ do
+  @value.should be_an_instance_of FigNewton::Node
+end
+
+Then /^the "([^\"]*)" value for the node should be "([^\"]*)"$/ do |key, value|
+  @value.send(key).should == value
+end
+
+When /^I ask for the node value for "([^\"]*)"$/ do |key|
+  @value = @value.send(key)
+end
+

@@ -1,1 +1,10 @@
 base_url: 'http://cheezyworld.com'
+
+database:
+  username: steve
+  password: secret
+
+first:
+  second:
+    third: foo
+    fourth: bar
