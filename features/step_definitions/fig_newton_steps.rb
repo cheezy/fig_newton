@@ -30,3 +30,7 @@ When /^I ask for the node value for "([^\"]*)"$/ do |key|
   @value = @value.send(key)
 end
 
+Given /^I have an environment variable named "([^\"]*)" set to "([^\"]*)"$/ do |env_name, filename|
+  ENV[env_name] = filename
+  FigNewton.instance_variable_set(:@yml, nil)
+end

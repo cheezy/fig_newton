@@ -10,4 +10,5 @@ module FigNewton
   def self.default_directory
     'config/environments'
   end
+
 end

@@ -1,3 +1,7 @@
+=== Version 0.3
+* Enhancements
+  * Added support for reading filename from environment variable FIG_NEWTON_FILE
+
 === Version 0.2 / 2012-5-16
 * Enhancements
   * Added support for nested hashes

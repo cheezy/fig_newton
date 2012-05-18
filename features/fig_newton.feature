@@ -10,6 +10,11 @@ Feature: Functionality of the fig_newton gem
     When I ask for a value that does not exist named "does_not_exist"
     Then I should raise a NoMethodError exception
     
+  Scenario: Getting the default filename from an environment variable
+    Given I have an environment variable named "FIG_NEWTON_FILE" set to "sample.yml"
+    When I ask for the value for "from_the_env_file"
+    Then I should see "read from the env file"
+    
   Scenario: Requesting data that contains a node of additional data
     Given I have read the configuration file
     When I ask for the value for "database"
