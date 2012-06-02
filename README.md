@@ -16,9 +16,9 @@ FigNewton.load('system_test.yml')
 
 Next we simply begin calling methods on the FigNewton module that match our keys.  Let's assume the system_test.yml file contains the following entries:
 
-base_url:  http://system_test.mycompany.com
-database_user: cheezy
-database_password: secret
+    base_url:  http://system_test.mycompany.com
+    database_user: cheezy
+    database_password: secret
 
 In our code we can call methods that match the keys.  Here is an example PageObject where we are using the `base_url` entry:
 
