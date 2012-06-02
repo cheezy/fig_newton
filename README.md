@@ -37,6 +37,7 @@ default:  FIG_NEWTON_FILE=local.yml --color --format pretty
 ci:       FIG_NEWTON_FILE=ci.yml --color --format pretty
 test:     FIG_NEWTON_FILE=test.yml --color --format pretty
 staging:  FIG_NEWTON_FILE=staging.yml --color --format pretty
+````
 
 When you run the cucumber command you can easily select the correct profile which in turn will select the correct configuration file for your environment.
 
