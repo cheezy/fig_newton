@@ -1,6 +1,7 @@
-=== Version 0.4
+=== Version 0.4 / 2012-6-9
 * Fixes
   * Updated yml_reader dependency to fix issue with using default directory
+  * Made change to the way files are read - default directory and file work properly now.
 
 === Version 0.3 / 2012-5-22
 * Enhancements
