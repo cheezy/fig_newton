@@ -1,5 +1,10 @@
 Given /^I have read the configuration file$/ do
+  FigNewton.yml_directory = 'config/yaml'
   FigNewton.load 'test_config.yml'
+end
+
+When /^I have read the default file from the default directory$/ do
+  FigNewton.yml = nil
 end
 
 When /^I ask for the value for "([^\"]*)"$/ do |key|
@@ -32,5 +37,6 @@ end
 
 Given /^I have an environment variable named "([^\"]*)" set to "([^\"]*)"$/ do |env_name, filename|
   ENV[env_name] = filename
+  FigNewton.yml_directory = 'config/yaml'
   FigNewton.instance_variable_set(:@yml, nil)
 end

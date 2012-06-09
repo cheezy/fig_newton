@@ -28,3 +28,9 @@ Feature: Functionality of the fig_newton gem
     And I ask for the node value for "second"
     Then the "third" value for the node should be "foo"
     And the "fourth" value for the node should be "bar"
+
+  Scenario: Using default directory and file
+    Given I have read the default file from the default directory
+    When I ask for the value for "base_url"
+    Then I should see "http://cheezyworld.com"
+    
