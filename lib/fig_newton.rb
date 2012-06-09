@@ -7,8 +7,12 @@ module FigNewton
   extend YmlReader
   extend FigNewton::Missing
 
-  def self.default_directory
-    'config/environments'
-  end
 
+  class << self
+    attr_accessor :yml
+
+    def default_directory
+      'config/environments'
+    end
+  end
 end
