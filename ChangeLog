@@ -1,3 +1,7 @@
+=== Version 0.4
+* Fixes
+  * Updated yml_reader dependency to fix issue with using default directory
+
 === Version 0.3 / 2012-5-22
 * Enhancements
   * Added support for reading filename from environment variable FIG_NEWTON_FILE
