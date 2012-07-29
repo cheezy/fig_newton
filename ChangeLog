@@ -1,3 +1,7 @@
+=== Version 0.5 / 2012-7-29
+* Fixes
+  * Fixed problem when using FIG_NEWTON_FILE without first calling load
+
 === Version 0.4 / 2012-6-9
 * Fixes
   * Updated yml_reader dependency to fix issue with using default directory
