@@ -10,7 +10,7 @@ module FigNewton
     end
 
     def read_file
-      @yml = YAML.load_file "#{@yml_directory}/#{ENV['FIG_NEWTON_FILE']}" if ENV['FIG_NEWTON_FILE']
+      @yml = YAML.load_file "#{yml_directory}/#{ENV['FIG_NEWTON_FILE']}" if ENV['FIG_NEWTON_FILE']
       FigNewton.load('default.yml') unless ENV['FIG_NEWTON_FILE']
     end
   end
