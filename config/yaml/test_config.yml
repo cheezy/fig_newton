@@ -8,3 +8,5 @@ first:
   second:
     third: foo
     fourth: bar
+
+port: 1234

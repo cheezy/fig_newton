@@ -15,6 +15,10 @@ Then /^I should see "([^\"]*)"$/ do |value|
   @value.should == value
 end
 
+Then /^I should see (\d+)$/ do |value|
+  @value.should == value.to_i
+end
+
 When /^I ask for a value that does not exist named "([^\"]*)"$/ do |non_existing|
   @does_not_exist = non_existing
 end
