@@ -1,3 +1,7 @@
+=== Version 0.6 / 2012-11-14
+* Fixes
+  * Fixed a problem where it would not return an integer (Thanks Steve Jackson)
+
 === Version 0.5 / 2012-7-29
 * Fixes
   * Fixed problem when using FIG_NEWTON_FILE without first calling load
