@@ -34,3 +34,7 @@ Feature: Functionality of the fig_newton gem
     When I ask for the value for "base_url"
     Then I should see "http://cheezyworld.com"
     
+  Scenario:  Requesting a numerical value
+    Given I have read the configuration file
+    When I ask for the value for "port"
+    Then I should see 1234
