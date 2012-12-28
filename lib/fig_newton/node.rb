@@ -7,5 +7,9 @@ module FigNewton
     def initialize(yml)
       @yml = yml
     end
+
+    def to_hash
+      @yml
+    end
   end
 end

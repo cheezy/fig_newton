@@ -44,3 +44,7 @@ Given /^I have an environment variable named "([^\"]*)" set to "([^\"]*)"$/ do |
   FigNewton.yml_directory = 'config/yaml'
   FigNewton.instance_variable_set(:@yml, nil)
 end
+
+Then /^the hash of values should look like:$/ do |table|
+  table.transpose.hashes.first.should == @value.to_hash
+end

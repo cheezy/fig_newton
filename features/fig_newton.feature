@@ -38,3 +38,12 @@ Feature: Functionality of the fig_newton gem
     Given I have read the configuration file
     When I ask for the value for "port"
     Then I should see 1234
+
+  Scenario:  Requesting data from a node can be converted to a hash
+    Given I have read the configuration file
+    When I ask for the value for "database"
+    Then I should have a node
+    And the hash of values should look like:
+      | username | steve  |
+      | password | secret |
+
