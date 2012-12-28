@@ -1,3 +1,5 @@
+require 'yaml'
+
 module FigNewton
   module Missing
     def method_missing(*args, &block)
