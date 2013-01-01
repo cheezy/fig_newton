@@ -2,8 +2,8 @@
 require File.expand_path('../lib/fig_newton/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.authors       = ["Jeff Morgan"]
-  gem.email         = ["jeff.morgan@leandog.com"]
+  gem.authors       = ["Jeff Morgan", "Steve Jackson"]
+  gem.email         = ["jeff.morgan@leandog.com", "steve.jackson@leandogsoftware.com"]
   gem.description   = %q{Provides a simple mechanism to maintain and use different configurations stored in yml files.}
   gem.summary       = %q{Provides a simple mechanism to maintain and use different configurations stored in yml files.}
   gem.homepage      = "http://github.com/cheezy/fig_newton"
