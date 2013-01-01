@@ -15,6 +15,12 @@ Feature: Functionality of the fig_newton gem
     When I ask for the value for "from_the_env_file"
     Then I should see "read from the env file"
     
+  Scenario: Using a file that has the same name as the hostname
+    Given I have a yml file that is named after the hostname
+    When I ask for the value for "from_the_hostname_file"
+    Then I should see "read from the hostname file"
+    And I should remove the file
+
   Scenario: Requesting data that contains a node of additional data
     Given I have read the configuration file
     When I ask for the value for "database"
@@ -47,3 +53,4 @@ Feature: Functionality of the fig_newton gem
       | username | steve  |
       | password | secret |
 
+    

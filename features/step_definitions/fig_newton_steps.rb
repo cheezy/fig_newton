@@ -40,6 +40,7 @@ When /^I ask for the node value for "([^\"]*)"$/ do |key|
 end
 
 Given /^I have an environment variable named "([^\"]*)" set to "([^\"]*)"$/ do |env_name, filename|
+  FigNewton.yml = nil
   ENV[env_name] = filename
   FigNewton.yml_directory = 'config/yaml'
   FigNewton.instance_variable_set(:@yml, nil)
@@ -47,4 +48,15 @@ end
 
 Then /^the hash of values should look like:$/ do |table|
   table.transpose.hashes.first.should == @value.to_hash
+end
+
+Given /^I have a yml file that is named after the hostname$/ do
+  FigNewton.yml = nil
+  FigNewton.yml_directory = 'config/yaml'
+  @hostname = Socket.gethostname
+  File.open("config/yaml/#{@hostname}.yml", 'w') {|file| file.write("from_the_hostname_file:  read from the hostname file\n")}
+end
+
+Then /^I should remove the file$/ do
+  File.delete("config/yaml/#{@hostname}.yml")
 end

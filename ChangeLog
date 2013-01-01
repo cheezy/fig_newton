@@ -1,3 +1,8 @@
+=== Version 0.7 / 2013-1-1
+* Enhancements
+  * Added a to_hash method to Node
+  * Added check to see if yml file named after hostname exists.
+
 === Version 0.6 / 2012-11-14
 * Fixes
   * Fixed a problem where it would not return an integer (Thanks Steve Jackson)

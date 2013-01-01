@@ -12,8 +12,14 @@ module FigNewton
     end
 
     def read_file
+      @yml = nil
       @yml = YAML.load_file "#{yml_directory}/#{ENV['FIG_NEWTON_FILE']}" if ENV['FIG_NEWTON_FILE']
-      FigNewton.load('default.yml') unless ENV['FIG_NEWTON_FILE']
+      hostname = Socket.gethostname
+      puts hostname
+      hostfile = "#{yml_directory}/#{hostname}.yml"
+      puts hostfile
+      @yml = YAML.load_file hostfile if File.exist? hostfile and @yml.nil?
+      FigNewton.load('default.yml') if @yml.nil?
     end
 
     private
