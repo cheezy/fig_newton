@@ -8,7 +8,9 @@ Manages configuration for test suites.  It is common to need different configura
 
 Using FigNewton is as simple as specifying the directory to use, loading a file from that directory, and then calling methods on the module that match the keys in the file.  Let's look at an example.
 
-By default the FigNewton gem will look for files in the 'config/environments' directory.  Let's assume that we have files named ci.yml, test.yml, and system_test.yml in that directory.  All we need to do is call the `load` method in order to begin using a file:
+By default the FigNewton gem will look for files in the 'config/environments' directory.  If you wish to use a different directory you simply set the correct directory like this - `FigNewton.yml_directory = 'other_directory'`.  
+
+By default, FigNewton will read a file named `default.yml` but you can name your _yml_ files anything you want.  Let's assume that we have files named ci.yml, test.yml, and system_test.yml in that directory.  All we need to do is call the `load` method in order to begin using a file:
 
 ````ruby
 FigNewton.load('system_test.yml')
@@ -40,6 +42,8 @@ staging:  FIG_NEWTON_FILE=staging.yml --color --format pretty
 ````
 
 When you run the cucumber command you can easily select the correct profile which in turn will select the correct configuration file for your environment.
+
+Another way to set the file to use is to create a file based on the hostname of the computers on which it will run.  For example, if we have an environment named _development.mydomain.com_ and another environment named _test.mydomain.com_ and yet another named _systemtest.mydomain.com_ we can create files named the same as the domain with the yml extension.
 
 
 ## Installation
