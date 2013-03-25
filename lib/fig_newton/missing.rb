@@ -6,6 +6,8 @@ module FigNewton
       read_file unless @yml
       m = args.first
       value = @yml[m.to_s]
+      value = args[1] unless value
+      value = block.call(m.to_s) unless value or block.nil?
       super unless value
       value = FigNewton::Node.new(value) unless type_known? value
       value
