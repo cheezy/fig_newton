@@ -1,3 +1,7 @@
+=== Version 0.8 / 2013-3-28
+* Enhancements
+  * Added ability to provide default values for any element
+
 === Version 0.7 / 2013-1-1
 * Enhancements
   * Added a to_hash method to Node
