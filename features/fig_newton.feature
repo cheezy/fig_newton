@@ -53,4 +53,23 @@ Feature: Functionality of the fig_newton gem
       | username | steve  |
       | password | secret |
 
+  Scenario: Requesting data that does not exist but has a default value should return the default value
+    Given I have read the configuration file
+    When I ask for a value that does not exist named "does_not_exist" that has a default value "the default value"
+    Then I should see "the default value"
+  
+  Scenario: Requesting data that does not exist but has a default block should return the block result
+    Given I have read the configuration file
+    When I ask for a value that does not exist named "does_not_exist" that has a default block returning "the default value"
+    Then I should see "the default value"
+  
+  Scenario: Requesting data that does not exist but has a default lambda should return the lambda result
+    Given I have read the configuration file
+    When I ask for a value that does not exist named "does_not_exist" that has a default lambda returning "the default value"
+    Then I should see "the default value"
+    And the lambda should be passed the property "does_not_exist"
     
+  Scenario: Requesting data that does not exist but has a default proc should return the proc result
+    Given I have read the configuration file
+    When I ask for a value that does not exist named "does_not_exist" that has a default proc returning "the default value"
+    Then I should see "the default value"

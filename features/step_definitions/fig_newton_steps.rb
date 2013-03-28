@@ -60,3 +60,28 @@ end
 Then /^I should remove the file$/ do
   File.delete("config/yaml/#{@hostname}.yml")
 end
+
+When(/^I ask for a value that does not exist named "(.+)" that has a default value "(.+)"$/) do |key, value|
+  @value = FigNewton.send key, value
+end
+
+When(/^I ask for a value that does not exist named "(.+)" that has a default block returning "(.+)"$/) do |key, value|
+  @value = FigNewton.send(key) {
+    value
+  }    
+end
+
+When(/^I ask for a value that does not exist named "(.+)" that has a default lambda returning "(.+)"$/) do |key, value|
+  mylambda = lambda {|property| @lambda_property = property; return value}
+  @value = FigNewton.send key, &mylambda
+end
+
+When(/^I ask for a value that does not exist named "(.+)" that has a default proc returning "(.+)"$/) do |key, value|
+  myproc = Proc.new {value}
+  @value = FigNewton.send(key, &myproc)  
+end
+
+Then(/^the lambda should be passed the property "(.+)"$/) do |expected_property|
+  expect(@lambda_property).to eq(expected_property)
+end
+

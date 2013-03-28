@@ -32,6 +32,15 @@ class MyPage
 end
 ````
 
+We can also supply default values which will be returned if the property does not exist:
+````ruby
+class MyPage
+  include PageObject
+  
+  page_url "#{FigNewton.base_url("http://cheezyworld.com")}/my_page.html"
+end
+````
+
 If you have an environment variable `FIG_NEWTON_FILE` set then it will read that file by default.  This makes it easy to set the environment via your `cucumber.yml` file like this:
 
 ````
