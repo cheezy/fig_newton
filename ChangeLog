@@ -1,3 +1,8 @@
+=== Version 0.9
+* Enhancements
+  * Fixed so no longer reading file when using default
+  * Removed some print statements
+
 === Version 0.8 / 2013-3-28
 * Enhancements
   * Added ability to provide default values for any element (Thanks Peter Hartman)

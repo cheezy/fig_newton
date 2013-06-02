@@ -16,15 +16,16 @@ module FigNewton
     def read_file
       @yml = nil
       @yml = YAML.load_file "#{yml_directory}/#{ENV['FIG_NEWTON_FILE']}" if ENV['FIG_NEWTON_FILE']
-      hostname = Socket.gethostname
-      puts hostname
-      hostfile = "#{yml_directory}/#{hostname}.yml"
-      puts hostfile
-      @yml = YAML.load_file hostfile if File.exist? hostfile and @yml.nil?
+      unless @yml
+        hostname = Socket.gethostname
+        hostfile = "#{yml_directory}/#{hostname}.yml"
+        @yml = YAML.load_file hostfile if File.exist? hostfile
+      end 
       FigNewton.load('default.yml') if @yml.nil?
     end
 
     private
+    
     def type_known?(value)
        value.kind_of? String or value.kind_of? Integer
     end
