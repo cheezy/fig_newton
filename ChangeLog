@@ -1,3 +1,7 @@
+=== Version 0.10 / 2014-6-1
+* Enhancements
+  * Can now include ERB in yml file due to changes in yml_reader
+
 === Version 0.9 / 2013-3-2
 * Enhancements
   * Fixed so no longer reading file when using default
