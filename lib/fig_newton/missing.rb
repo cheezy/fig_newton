@@ -1,4 +1,5 @@
 require 'yaml'
+require 'socket'
 
 module FigNewton
   module Missing
