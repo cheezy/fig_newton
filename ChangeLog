@@ -1,3 +1,6 @@
+=== Version 0.11 / 2014-12-19
+* Added require for socket in order to elminate possible error (Thanks Doug Morgan)
+
 === Version 0.10 / 2014-6-1
 * Enhancements
   * Can now include ERB in yml file due to changes in yml_reader
