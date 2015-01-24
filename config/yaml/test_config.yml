@@ -8,5 +8,8 @@ first:
   second:
     third: foo
     fourth: bar
+    fifth: true
+    sixth: false
 
 port: 1234
+use_ssl: false
