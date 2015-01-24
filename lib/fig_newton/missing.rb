@@ -7,6 +7,7 @@ module FigNewton
       read_file unless @yml
       m = args.first
       value = @yml[m.to_s]
+      return value if type_bool?(value)
       value = args[1] unless value
       value = block.call(m.to_s) unless value or block.nil?
       super unless value
@@ -21,14 +22,18 @@ module FigNewton
         hostname = Socket.gethostname
         hostfile = "#{yml_directory}/#{hostname}.yml"
         @yml = YAML.load_file hostfile if File.exist? hostfile
-      end 
+      end
       FigNewton.load('default.yml') if @yml.nil?
     end
 
     private
-    
+
     def type_known?(value)
        value.kind_of? String or value.kind_of? Integer
+    end
+
+    def type_bool?(value)
+      value.is_a?(TrueClass) || value.is_a?(FalseClass)
     end
   end
 end
