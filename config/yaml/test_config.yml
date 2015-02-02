@@ -10,3 +10,5 @@ first:
     fourth: bar
 
 port: 1234
+set_flag: true
+cleared_flag: false
