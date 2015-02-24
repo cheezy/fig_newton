@@ -1,3 +1,7 @@
+=== Version 0.12 / 2015-02-24
+* Enhancements
+  * Added ability to receive boolean values from the yml (Thanks Steve Jackson)
+
 === Version 0.11 / 2014-12-19
 * Added require for socket in order to elminate possible error (Thanks Doug Morgan)
 
