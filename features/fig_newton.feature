@@ -45,6 +45,16 @@ Feature: Functionality of the fig_newton gem
     When I ask for the value for "port"
     Then I should see 1234
 
+  Scenario: Requesting a true boolean value
+    Given I have read the configuration file
+    When I ask for the value for "set_flag"
+    Then I should see true
+
+  Scenario: Requesting a false boolean value
+    Given I have read the configuration file
+    When I ask for the value for "cleared_flag"
+    Then I should see false
+
   Scenario:  Requesting data from a node can be converted to a hash
     Given I have read the configuration file
     When I ask for the value for "database"

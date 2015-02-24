@@ -7,9 +7,9 @@ module FigNewton
       read_file unless @yml
       m = args.first
       value = @yml[m.to_s]
-      value = args[1] unless value
-      value = block.call(m.to_s) unless value or block.nil?
-      super unless value
+      value = args[1] if value.nil?
+      value = block.call(m.to_s) if value.nil? and block
+      super if value.nil?
       value = FigNewton::Node.new(value) unless type_known? value
       value
     end
@@ -21,14 +21,15 @@ module FigNewton
         hostname = Socket.gethostname
         hostfile = "#{yml_directory}/#{hostname}.yml"
         @yml = YAML.load_file hostfile if File.exist? hostfile
-      end 
+      end
       FigNewton.load('default.yml') if @yml.nil?
     end
 
     private
-    
+
     def type_known?(value)
-       value.kind_of? String or value.kind_of? Integer
+      known_types = [String, Integer, TrueClass, FalseClass]
+      known_types.any? { |type| value.kind_of? type }
     end
   end
 end
