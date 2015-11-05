@@ -16,7 +16,15 @@ module FigNewton
 
     def read_file
       @yml = nil
-      @yml = YAML.load_file "#{yml_directory}/#{ENV['FIG_NEWTON_FILE']}" if ENV['FIG_NEWTON_FILE']
+
+      if ENV['FIG_NEWTON_FILE']
+        files_to_read = env_files
+
+        @yml = files_to_read.inject({}) do |total_merge,file|
+          total_merge.merge!(YAML.load_file "#{yml_directory}/#{file}")
+        end
+      end
+
       unless @yml
         hostname = Socket.gethostname
         hostfile = "#{yml_directory}/#{hostname}.yml"
@@ -26,6 +34,11 @@ module FigNewton
     end
 
     private
+
+    def env_files
+      content = ENV['FIG_NEWTON_FILE']
+      content.include?(',') ? content.split(',') : [content]
+    end
 
     def type_known?(value)
       known_types = [String, Integer, TrueClass, FalseClass]
