@@ -14,7 +14,14 @@ Feature: Functionality of the fig_newton gem
     Given I have an environment variable named "FIG_NEWTON_FILE" set to "sample.yml"
     When I ask for the value for "from_the_env_file"
     Then I should see "read from the env file"
-    
+
+  Scenario: Merging various environment files
+    Given I have an environment variable named "FIG_NEWTON_FILE" set to a comma separated list with the filenames "env_file_one.yml" and "env_file_two.yml"
+    When I ask for the value for "from_the_env_file_one"
+    Then I should see "read from the merge one"
+    And I ask for the value for "from_the_env_file_two"
+    And I should see "read from the merge two"
+
   Scenario: Using a file that has the same name as the hostname
     Given I have a yml file that is named after the hostname
     When I ask for the value for "from_the_hostname_file"
