@@ -50,7 +50,7 @@ end
 Given (/^I have an environment variable named "([^\"]*)" set to "([^\"]*)"$/) do |env_name, filename|
   FigNewton.yml = nil
   ENV[env_name] = filename
-  FigNewton.yml_directory = 'config/yaml'
+  FigNewton.yml_directory = 'config/yaml'  
   FigNewton.instance_variable_set(:@yml, nil)
 end
 
@@ -93,3 +93,9 @@ Then (/^the lambda should be passed the property "(.+)"$/) do |expected_property
   expect(@lambda_property).to eq(expected_property)
 end
 
+Given(/^I have an environment variable named "(.*?)" set to a comma separated list with the filenames "(.*?)" and "(.*?)"$/) do |env_name, filename1, filename2|
+  FigNewton.yml = nil
+  ENV[env_name] = "#{filename1},#{filename2}"
+  FigNewton.yml_directory = 'config/yaml'
+  FigNewton.instance_variable_set(:@yml, nil)
+end
