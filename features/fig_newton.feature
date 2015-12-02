@@ -56,10 +56,9 @@ Feature: Functionality of the fig_newton gem
     Then I should see false
 
   Scenario: Requesting a symbol value
-     Given I have read the configuration file
-     When I ask for the value for "my_symbol"
-     Then I should see hello_world
-
+    Given I have read the configuration file
+    When I ask for the value for "my_symbol"
+    Then I should see :hello_world
 
   Scenario:  Requesting data from a node can be converted to a hash
     Given I have read the configuration file
