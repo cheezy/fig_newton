@@ -16,7 +16,8 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = FigNewton::VERSION
   
-  gem.add_dependency 'yml_reader', '>= 0.5'
+  # Removing dependancy from gemspec so I can point to my custom yml_reader lib
+  #gem.add_dependency 'yml_reader', '>= 0.5'
   
   gem.add_development_dependency 'rspec', '>= 3.2.0'
   gem.add_development_dependency 'cucumber', '>= 1.3.19'
