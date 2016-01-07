@@ -16,7 +16,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = FigNewton::VERSION
   
-  gem.add_dependency 'yml_reader', '<= 0.6'
+  gem.add_dependency 'yml_reader', '>= 0.6'
   
   gem.add_development_dependency 'rspec', '>= 3.2.0'
   gem.add_development_dependency 'cucumber', '>= 1.3.19'
