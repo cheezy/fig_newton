@@ -19,6 +19,10 @@ Then (/^I should see (\d+)$/) do |value|
   expect(@value).to eql value.to_i
 end
 
+Then (/^I should see :([^\"]*)$/) do |value|
+  expect(@value).to eql value.to_sym
+end
+
 Then (/^I should see true$/) do
   expect(@value).to be true
 end
