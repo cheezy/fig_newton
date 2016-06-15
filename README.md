@@ -16,6 +16,12 @@ By default, FigNewton will read a file named `default.yml` but you can name your
 FigNewton.load('system_test.yml')
 ````
 
+You can also specify a comma separated list of file names:
+
+```ruby
+FigNewton.load('english_messages.yml,spanish_messages.yml,french_messages.yml')
+```
+
 Next we simply begin calling methods on the FigNewton module that match our keys.  Let's assume the system_test.yml file contains the following entries:
 
     base_url:  http://system_test.mycompany.com
