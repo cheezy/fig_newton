@@ -1,0 +1,16 @@
+base_url: 'http://cheezyworld.com'
+
+database:
+  username: steve
+  password: secret
+
+first:
+  second:
+    third: foo
+    fourth: bar
+
+port: 1234
+set_flag: true
+cleared_flag: false
+my_symbol: :hello_world
+my_float: 0.25
