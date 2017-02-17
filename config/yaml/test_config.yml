@@ -13,3 +13,4 @@ port: 1234
 set_flag: true
 cleared_flag: false
 my_symbol: :hello_world
+my_float: 0.25
