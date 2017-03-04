@@ -19,6 +19,11 @@ Then (/^I should see (\d+)$/) do |value|
   expect(@value).to eql value.to_i
 end
 
+Then(/^I should see (\d+)\.(\d+)$/) do |value1, value2|
+  decimal = value1 + '.' + value2
+  expect(@value).to eql decimal.to_f
+end
+
 Then (/^I should see :([^\"]*)$/) do |value|
   expect(@value).to eql value.to_sym
 end

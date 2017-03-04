@@ -9,12 +9,12 @@ Feature: Functionality of the fig_newton gem
     Given I have read the configuration file
     When I ask for a value that does not exist named "does_not_exist"
     Then I should raise a NoMethodError exception
-    
+
   Scenario: Getting the default filename from an environment variable
     Given I have an environment variable named "FIG_NEWTON_FILE" set to "sample.yml"
     When I ask for the value for "from_the_env_file"
     Then I should see "read from the env file"
-    
+
   Scenario: Using a file that has the same name as the hostname
     Given I have a yml file that is named after the hostname
     When I ask for the value for "from_the_hostname_file"
@@ -39,11 +39,16 @@ Feature: Functionality of the fig_newton gem
     Given I have read the default file from the default directory
     When I ask for the value for "base_url"
     Then I should see "http://cheezyworld.com"
-    
+
   Scenario:  Requesting a numerical value
     Given I have read the configuration file
     When I ask for the value for "port"
     Then I should see 1234
+
+  Scenario:  Requesting a decimal value
+    Given I have read the configuration file
+    When I ask for the value for "my_float"
+    Then I should see 0.25
 
   Scenario: Requesting a true boolean value
     Given I have read the configuration file
@@ -72,18 +77,18 @@ Feature: Functionality of the fig_newton gem
     Given I have read the configuration file
     When I ask for a value that does not exist named "does_not_exist" that has a default value "the default value"
     Then I should see "the default value"
-  
+
   Scenario: Requesting data that does not exist but has a default block should return the block result
     Given I have read the configuration file
     When I ask for a value that does not exist named "does_not_exist" that has a default block returning "the default value"
     Then I should see "the default value"
-  
+
   Scenario: Requesting data that does not exist but has a default lambda should return the lambda result
     Given I have read the configuration file
     When I ask for a value that does not exist named "does_not_exist" that has a default lambda returning "the default value"
     Then I should see "the default value"
     And the lambda should be passed the property "does_not_exist"
-    
+
   Scenario: Requesting data that does not exist but has a default proc should return the proc result
     Given I have read the configuration file
     When I ask for a value that does not exist named "does_not_exist" that has a default proc returning "the default value"
