@@ -28,7 +28,7 @@ module FigNewton
     private
 
     def type_known?(value)
-      known_types = [String, Integer, TrueClass, FalseClass, Symbol, Float]
+      known_types = [String, Integer, TrueClass, FalseClass, Symbol, Float, Array]
       known_types.any? { |type| value.kind_of? type }
     end
   end

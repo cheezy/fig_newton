@@ -1,4 +1,8 @@
-=== Version 0.14 / 2017-3-4
+=== Version 0.15 / 2017-13-6
+* Enhancements
+  * Added support for Arrays
+
+  === Version 0.14 / 2017-3-4
 * Enhancements
   * Added support for Float as value (Thanks Carlos Gutierrez)
 
