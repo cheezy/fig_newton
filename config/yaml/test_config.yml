@@ -14,3 +14,8 @@ set_flag: true
 cleared_flag: false
 my_symbol: :hello_world
 my_float: 0.25
+my_array:
+  - one
+  - 2
+  - 3.0
+  - :four

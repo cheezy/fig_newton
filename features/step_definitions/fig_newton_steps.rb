@@ -28,6 +28,12 @@ Then (/^I should see :([^\"]*)$/) do |value|
   expect(@value).to eql value.to_sym
 end
 
+Then(/^I should see an array containing "(.*?)", (\d+), (\d+)\.(\d+), :([^\"]*)$/) do |string, int, val1, val2, symbol|
+  decimal = val1 + '.' + val2
+  array = [string, int.to_i, decimal.to_f, symbol.to_sym]
+  expect(@value).to eql(array)
+end
+
 Then (/^I should see true$/) do
   expect(@value).to be true
 end
