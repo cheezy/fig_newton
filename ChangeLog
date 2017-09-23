@@ -1,3 +1,7 @@
+=== Version 1.0
+* Fixes
+  * Fixed issue when ERB was not being evaluated when using ENV to specify file
+
 === Version 0.15 / 2017-03-08
 * Enhancements
   * Added support for Arrays (Thanks TheSpartan1980)

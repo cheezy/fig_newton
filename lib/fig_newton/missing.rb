@@ -1,5 +1,6 @@
 require 'yaml'
 require 'socket'
+require 'erb'
 
 module FigNewton
   module Missing
@@ -16,7 +17,7 @@ module FigNewton
 
     def read_file
       @yml = nil
-      @yml = YAML.load_file "#{yml_directory}/#{ENV['FIG_NEWTON_FILE']}" if ENV['FIG_NEWTON_FILE']
+      @yml = ::YAML.load(ERB.new(File.read("#{yml_directory}/#{ENV['FIG_NEWTON_FILE']}")).result(binding)) if ENV['FIG_NEWTON_FILE']
       unless @yml
         hostname = Socket.gethostname
         hostfile = "#{yml_directory}/#{hostname}.yml"
