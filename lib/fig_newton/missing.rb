@@ -6,18 +6,35 @@ module FigNewton
   module Missing
     def method_missing(*args, &block)
       read_file unless @yml
-      m = args.first
-      value = @yml[m.to_s]
+      method_name = args.first.to_s
+      value = @yml[method_name]
+
+      # If the requested key is not found and an argument was provided, return the argument.
+      # FigNewton.something("MyDefault") returns "MyDefault".
       value = args[1] if value.nil?
-      value = block.call(m.to_s) if value.nil? and block
+
+      # If there is still no value to return but a block was given, it will will run the block with the method name to try to produce a non-nil value.
+      value = block.call(method_name) if value.nil? and block
+
+      # If after all the procedures above value is still nil, then call #method_missing in the superclass.
       super if value.nil?
+
       value = FigNewton::Node.new(value) unless type_known? value
       value
     end
 
     def read_file
       @yml = nil
-      @yml = ::YAML.load(ERB.new(File.read("#{yml_directory}/#{ENV['FIG_NEWTON_FILE']}")).result(binding)) if ENV['FIG_NEWTON_FILE']
+      
+      # Loads the .yml file content "as is" (including any <% ... %> or <%= ... %> embedded Ruby tags).
+      yml_content = File.read("#{yml_directory}/#{ENV['FIG_NEWTON_FILE']}")
+      
+      # Yields the content to ERB and processes any embedded Ruby in it, obtaining valid YAML.
+      processed_template = ERB.new(yml_content).result(binding)
+
+      # Loads the YAML data as a Ruby hash.
+      @yml = ::YAML.load(processed_template) if ENV['FIG_NEWTON_FILE']
+
       unless @yml
         hostname = Socket.gethostname
         hostfile = "#{yml_directory}/#{hostname}.yml"
